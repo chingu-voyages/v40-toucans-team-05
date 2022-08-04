@@ -3,6 +3,16 @@
 * {
   box-sizing: border-box;
 }
+
+/* Make sure top level containers have no padding or margin
+and are set to full width and height of screen */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
 body {
   background: linear-gradient(
     180deg,
@@ -10,46 +20,43 @@ body {
     rgba(66, 173, 207, 0.6) 58.85%,
     rgba(156, 209, 226, 0.4) 100%
   );
-  min-height: 100vh;
   font-family: "Nunito", sans-serif;
   color: whitesmoke;
-  margin: 0;
-  padding: 0;
 }
 header {
   display: flex;
+  align-items: center;
   background-color: rgba(34, 172, 202, 1);
-  min-width: 100%;
+  height: 100px;
+  padding-left: 2em;
 }
-.logo {
-  padding-left: 1.5rem;
-}
+
 section {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  min-height: 100vh;
+  /* height of section is 100% of its parent which is the body. Body is 100vh so essentially
+  section is 100% of the screen. Then MINUS 100px which is the height of the header*/
+  height: calc(100% - 100px)
 }
 .container {
   background-color: rgba(34, 172, 202, 1);
   padding: 2rem;
   border-radius: 20px;
-  width: 100%;
-  max-width: 500px;
-  margin: 1em;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 500px;
 }
 .search-btn {
-  margin: 0.5em;
+  margin-left: 0.5em;
   border-radius: 50%;
   border: none;
-  height: 46px;
-  width: 46px;
+  height: 45px;
+  width: 45px;
   background-color: rgba(153, 211, 229, 1);
   outline: none;
+  cursor: pointer;
 }
 .search-btn:hover {
   background-color: rgba(153, 211, 229, 0.459);
@@ -63,11 +70,12 @@ input::placeholder {
 .search-bar {
   border: none;
   outline: none;
-  padding: 0.8em;
-  height: 40px;
+  padding: 1em;
+  /* same as button height */
+  height: 45px;
   font-weight: bold;
   border-radius: 18px;
   background: rgba(153, 211, 229, 0.459);
-  color: white;
   font-size: 20px;
+  color: white;
 }
