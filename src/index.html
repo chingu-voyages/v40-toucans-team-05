@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +16,24 @@
   </head>
 
   <body>
-    <h1 class="title">Weather app</h1>
+    <header>
+      <div class="logo">
+        <h1>WEATHER app</h1>
+      </div>
+    </header>
+    <section>
+      <div class="container">
+        <input
+          type="text"
+          id="input-field"
+          class="search-bar"
+          placeholder="Search a location"
+        />
+        <button class="search-btn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+    </section>
     <script src="./index.js" type="module" async="true"></script>
   </body>
 </html>
