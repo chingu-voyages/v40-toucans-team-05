@@ -18,10 +18,6 @@
   },
   "homepage": "https://github.com/chingu-voyages/v40-toucans-team-05#readme",
   "devDependencies": {
-    "parcel": "^2.6.2",
-    "process": "^0.11.10"
-  },
-  "dependencies": {
-    "dotenv": "^16.0.1"
+    "parcel": "^2.6.2"
   }
 }
