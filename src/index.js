@@ -12,8 +12,8 @@ searchButton.addEventListener("click", async () => {
   clearInput()
 })
 
-inputBar.addEventListener("keydown", (e) => {
-  if (e.key == "Enter") {
+inputBar.addEventListener("keydown", ({key}) => {
+  if (key == "Enter") {
     fetchCity(inputBar.value)
     clearInput()
   }
