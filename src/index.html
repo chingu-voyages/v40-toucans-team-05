@@ -39,14 +39,24 @@
         <div class="information">
           <div class="city">weather in Lagos</div>
           <div class="temperature">25 <span class="degree">°c</span></div>
-          <div class="icon"></div>
+          <!-- this is the class to insert the image-->
+          <img
+            src="https://openweathermap.org/img/wn/01d.png"
+            alt=""
+            class="icon"
+          />
           <div class="description">cloudy</div>
           <div class="style">
+            <!-- target the span classes-->
             <div class="wind-speed">
-              <i class="fa-solid fa-wind"></i>wind speed <span>2.5km</span>
+              <i class="fa-solid fa-wind"></i>wind speed
+              <!-- first span class-->
+              <span class="wind-speed-figure">2.5km</span>
             </div>
             <div class="humidity">
-              <i class="fa-solid fa-droplet"></i>humidity <span>82%</span>
+              <i class="fa-solid fa-droplet"></i>humidity
+              <!-- second span class-->
+              <span class="humidity-amount">82%</span>
             </div>
           </div>
         </div>

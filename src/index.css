@@ -110,9 +110,9 @@ input::placeholder {
 }
 
 .temperature {
-  font-size: 120px;
+  font-size: 80px;
   font-weight: 600;
-  padding: 1.5rem 0;
+
   font-family: "Inter", sans-serif;
   display: flex;
   flex-direction: row;
@@ -158,6 +158,13 @@ input::placeholder {
   border-radius: 20px;
 }
 
+.icon {
+  height: 100px;
+  width: 100px;
+  margin-bottom: 1rem;
+}
+
+
 .error {
   position: fixed;
   bottom: -50px;
@@ -196,3 +203,4 @@ input::placeholder {
 #error-close:hover {
   background-color: #ff6e6e;
 }
+
