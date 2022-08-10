@@ -15,9 +15,9 @@ searchButton.addEventListener("click", async () => {
   clearInput()
 })
 
-document.addEventListener("keydown", async ({ key }) => {
-  if (key.toLocaleLowerCase() === "enter" && inputBar.value.length > 0) {
-    await fetchCity(inputBar.value)
+inputBar.addEventListener("keydown", ({key}) => {
+  if (key == "Enter") {
+    fetchCity(inputBar.value)
     clearInput()
   }
 })
