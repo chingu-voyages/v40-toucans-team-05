@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap");
 
 * {
   box-sizing: border-box;
@@ -6,7 +7,8 @@
 
 /* Make sure top level containers have no padding or margin
 and are set to full width and height of screen */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100vw;
@@ -15,14 +17,18 @@ html, body {
 
 body {
   background: linear-gradient(
-    180deg,
-    rgba(95, 182, 209, 0.8) 0%,
-    rgba(66, 173, 207, 0.6) 58.85%,
-    rgba(156, 209, 226, 0.4) 100%
-  );
+      180deg,
+      rgba(95, 182, 209, 0.8) 0%,
+      rgba(66, 173, 207, 0.6) 58.85%,
+      rgba(156, 209, 226, 0.4) 100%
+    ),
+    url(https://source.unsplash.com/random/?weather);
+  background-repeat: no-repeat;
+  background-size: cover;
   font-family: "Nunito", sans-serif;
   color: whitesmoke;
 }
+
 header {
   display: flex;
   align-items: center;
@@ -37,17 +43,20 @@ section {
   align-items: center;
   /* height of section is 100% of its parent which is the body. Body is 100vh so essentially
   section is 100% of the screen. Then MINUS 100px which is the height of the header*/
-  height: calc(100% - 100px)
+  height: calc(100% - 100px);
 }
+
 .container {
-  background-color: rgba(34, 172, 202, 1);
+  background-color: rgba(34, 171, 202, 0.678);
   padding: 2rem;
   border-radius: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 500px;
 }
+
 .search-btn {
   margin-left: 0.5em;
   border-radius: 50%;
@@ -58,15 +67,19 @@ section {
   outline: none;
   cursor: pointer;
 }
+
 .search-btn:hover {
   background-color: rgba(153, 211, 229, 0.459);
 }
+
 .fa-solid {
   color: whitesmoke;
 }
+
 input::placeholder {
   color: white;
 }
+
 .search-bar {
   border: none;
   outline: none;
@@ -78,6 +91,71 @@ input::placeholder {
   background: rgba(153, 211, 229, 0.459);
   font-size: 20px;
   color: white;
+}
+
+.information {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.city {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.description {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.temperature {
+  font-size: 120px;
+  font-weight: 600;
+  padding: 1.5rem 0;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: row;
+}
+
+.degree {
+  font-size: 4rem;
+  align-items: flex-start;
+  margin-top: 0.6rem;
+}
+
+.style {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.wind-speed {
+  background-color: rgba(153, 211, 229, 0.459);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+  height: 180px;
+  width: 200px;
+  border-radius: 20px;
+}
+
+.humidity {
+  background-color: rgba(153, 211, 229, 0.459);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+  height: 180px;
+  width: 200px;
+  border-radius: 20px;
 }
 
 .error {
@@ -118,6 +196,3 @@ input::placeholder {
 #error-close:hover {
   background-color: #ff6e6e;
 }
-
-
-
