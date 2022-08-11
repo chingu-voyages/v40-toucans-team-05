@@ -1,4 +1,4 @@
-const apiKey = process.env.API_KEY
+const apiKey = "b92f6c8cab2bec8789ee1cca2ee645cc"
 
 // Elements
 
@@ -15,12 +15,37 @@ searchButton.addEventListener("click", async () => {
   clearInput()
 })
 
-inputBar.addEventListener("keydown", ({key}) => {
+inputBar.addEventListener("keydown", ({ key }) => {
   if (key == "Enter") {
     fetchCity(inputBar.value)
     clearInput()
   }
 })
+// function to display user input.
+/*document.querySelector("keydown", async ({ key }) => {
+  if (key.toLocalLowerCase() == "enter" && inputBar.value.length > 0) {
+    await fetchCity(inputBar.value)
+    clearInput()
+  }
+})*/
+async function displayWeather(data) {
+  const { name } = data
+  const { temp } = data.temp
+  // convert temp from kelvin to celsuis.
+  //temp = data.temp - 273.15
+  const { humidity } = data.humidity
+  const { icon, description } = data.weather[0]
+  const { speed } = data.speed
+  console.log(name, temp, humidity, icon, description, speed)
+  document.querySelector(".city").innerText = `Weather in ${name}`
+  document.querySelector(
+    ".icon"
+  ).src = `http://openweathermap.org/img/wn/${icon}@2x.png`
+  document.querySelector(".description").innerText = description
+  document.querySelector(".temperature").innerText = `${temperature}°C`
+  document.querySelector(".humidity").innerText = `Humidity ${humidity} %`
+  document.querySelector(".wind-speed").innerText = `wind speed ${speed}km`
+}
 
 errorClose.onclick = () => {
   errorText.innerText = ""
