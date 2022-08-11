@@ -1,4 +1,4 @@
-const apiKey = "b92f6c8cab2bec8789ee1cca2ee645cc"
+const apiKey = process.env.API_KEY
 
 // Elements
 
