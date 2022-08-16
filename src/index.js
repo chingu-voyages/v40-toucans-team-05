@@ -7,6 +7,8 @@ const inputBar = document.querySelector(".search-bar")
 const errorBar = document.getElementById("error-bar")
 const errorText = document.getElementById("error-text")
 const errorClose = document.getElementById("error-close")
+const windSpeed = document.querySelector(".wind-speed-figure")
+const humid = document.querySelector(".humidity-amount")
 
 // Listeners
 
@@ -45,8 +47,9 @@ async function displayWeather(data) {
   ).src = `http://openweathermap.org/img/wn/${icon}@2x.png`
   document.querySelector(".description").innerText = description
   document.querySelector(".temperature").innerText = `${celcius}°C`
-  document.querySelector(".humidity").innerText = `Humidity ${humidity} %`
-  document.querySelector(".wind-speed").innerText = `wind speed ${speed}km`
+  windSpeed.innerText = `${speed}km/h`
+  humid.innerText = `${humidity}%`
+  document.querySelector(".information").classList.remove("loading")
 }
 
 errorClose.onclick = () => {

@@ -163,7 +163,9 @@ input::placeholder {
   width: 100px;
   margin-bottom: 1rem;
 }
-
+.information.loading {
+  display: none;
+}
 
 .error {
   position: fixed;
@@ -173,7 +175,7 @@ input::placeholder {
   height: 50px;
   background-color: #ff2d2d;
   font-size: 20px;
-  font-weight:bolder;
+  font-weight: bolder;
   padding: 10px;
   transition: bottom 0.2s;
   display: flex;
@@ -188,7 +190,7 @@ input::placeholder {
   margin-left: auto;
 }
 
- #error-close {
+#error-close {
   cursor: pointer;
   border-radius: 10px;
   border: none;
@@ -203,4 +205,3 @@ input::placeholder {
 #error-close:hover {
   background-color: #ff6e6e;
 }
-
