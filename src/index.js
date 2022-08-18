@@ -1,4 +1,6 @@
 const apiKey = process.env.API_KEY
+const storageKey = "weather-app--last-search"
+const KELVIN_TO_CELSIUS_CONSTANT = 273.15
 
 // Elements
 
@@ -23,13 +25,7 @@ inputBar.addEventListener("keydown", ({ key }) => {
     clearInput()
   }
 })
-// function to display user input.
-/*document.querySelector("keydown", async ({ key }) => {
-  if (key.toLocalLowerCase() == "enter" && inputBar.value.length > 0) {
-    await fetchCity(inputBar.value)
-    clearInput()
-  }
-})*/
+
 async function displayWeather(data) {
   const {
     name,
@@ -37,10 +33,9 @@ async function displayWeather(data) {
     main: { humidity, temp },
     wind: { speed },
   } = data
-  const celcius = Math.round(temp - 273.15)
+  const celcius = Math.round(temp - KELVIN_TO_CELSIUS_CONSTANT)
   const { icon, description } = weather[0]
 
-  console.log(name, temp, humidity, icon, description, speed)
   document.querySelector(".city").innerText = `Weather in ${name}`
   document.querySelector(
     ".icon"
@@ -70,7 +65,7 @@ async function fetchCity(city) {
     const data = await response.json()
 
     if (response.status === 200) {
-      console.log(data)
+      saveToStorage(city)
       displayWeather(data)
     } else {
       errorBar.classList.add("show")
@@ -89,3 +84,14 @@ function createWeatherImage(iconCode) {
 }
 
 const clearInput = () => (inputBar.value = "")
+
+window.addEventListener("load", () => {
+  const cityFromStorage = getFromStorage()
+  if (cityFromStorage) {
+    fetchCity(cityFromStorage)
+  }
+  return undefined
+})
+
+const saveToStorage = (city) => localStorage.setItem(storageKey, city)
+const getFromStorage = () => localStorage.getItem(storageKey)
