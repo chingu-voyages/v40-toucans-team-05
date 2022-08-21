@@ -14,17 +14,30 @@ const humid = document.querySelector(".humidity-amount")
 
 // Listeners
 
-searchButton.addEventListener("click", async () => {
+window.onload = () => {
+  const cityFromStorage = getFromStorage()
+  if (cityFromStorage) {
+    fetchCity(cityFromStorage)
+  }
+  return undefined
+}
+
+searchButton.onclick = async () => {
   await fetchCity(inputBar.value)
   clearInput()
-})
+}
 
-inputBar.addEventListener("keydown", ({ key }) => {
+inputBar.onkeydown = ({ key }) => {
   if (key == "Enter") {
     fetchCity(inputBar.value)
     clearInput()
   }
-})
+}
+
+errorClose.onclick = () => {
+  errorText.innerText = ""
+  errorBar.classList.remove("show")
+}
 
 async function displayWeather(data) {
   const {
@@ -47,11 +60,6 @@ async function displayWeather(data) {
   document.querySelector(".information").classList.remove("loading")
 }
 
-errorClose.onclick = () => {
-  errorText.innerText = ""
-  errorBar.classList.remove("show")
-}
-
 // Functions
 
 async function fetchCity(city) {
@@ -69,7 +77,7 @@ async function fetchCity(city) {
       displayWeather(data)
     } else {
       errorBar.classList.add("show")
-      errorText.innerText += "Error: " + data.message
+      errorText.innerText = "Error: " + data.message
     }
   } catch (e) {
     console.log(e)
@@ -83,15 +91,6 @@ function createWeatherImage(iconCode) {
   return img
 }
 
-const clearInput = () => (inputBar.value = "")
-
-window.addEventListener("load", () => {
-  const cityFromStorage = getFromStorage()
-  if (cityFromStorage) {
-    fetchCity(cityFromStorage)
-  }
-  return undefined
-})
-
 const saveToStorage = (city) => localStorage.setItem(storageKey, city)
 const getFromStorage = () => localStorage.getItem(storageKey)
+const clearInput = () => (inputBar.value = "")
