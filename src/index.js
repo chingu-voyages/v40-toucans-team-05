@@ -45,6 +45,12 @@ async function displayWeather(data) {
   windSpeed.innerText = `${speed}km/h`
   humid.innerText = `${humidity}%`
   document.querySelector(".information").classList.remove("loading")
+  document.body.style.background = `linear-gradient(
+    180deg,
+    rgba(95, 182, 209, 0.8) 0%,
+    rgba(66, 173, 207, 0.6) 58.85%,
+    rgba(156, 209, 226, 0.4) 100%
+  ),url(https://source.unsplash.com/1600x900/?${name})`
 }
 
 errorClose.onclick = () => {
