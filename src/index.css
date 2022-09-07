@@ -16,15 +16,9 @@ body {
 }
 
 body {
-  background: linear-gradient(
-      180deg,
-      rgba(95, 182, 209, 0.8) 0%,
-      rgba(66, 173, 207, 0.6) 58.85%,
-      rgba(156, 209, 226, 0.4) 100%
-    ),
-    url(https://source.unsplash.com/random/?weather);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   font-family: "Nunito", sans-serif;
   color: whitesmoke;
 }
@@ -35,6 +29,7 @@ header {
   background-color: rgba(34, 172, 202, 1);
   height: 100px;
   padding-left: 2em;
+  width: 100%;
 }
 
 section {
@@ -100,8 +95,9 @@ input::placeholder {
 }
 
 .city {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   margin-top: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .description {
@@ -112,10 +108,7 @@ input::placeholder {
 .temperature {
   font-size: 80px;
   font-weight: 600;
-
   font-family: "Inter", sans-serif;
-  display: flex;
-  flex-direction: row;
 }
 
 .degree {
@@ -204,4 +197,98 @@ input::placeholder {
 
 #error-close:hover {
   background-color: #ff6e6e;
+}
+
+/*smaller screens */
+@media (max-width: 991px) {
+  .container {
+    background-color: rgba(34, 171, 202, 0.678);
+    padding: 2rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(500px - 150px);
+  }
+  .search-btn {
+    margin-left: 0.5em;
+    border-radius: 50%;
+    border: none;
+    height: calc(45px);
+    width: calc(45px);
+    background-color: rgba(153, 211, 229, 1);
+    outline: none;
+    cursor: pointer;
+  }
+  .search-bar {
+    border: none;
+    outline: none;
+    padding: 1em;
+    /* same as button height */
+    height: calc(45px);
+    font-weight: bold;
+    border-radius: 18px;
+    background: rgba(153, 211, 229, 0.459);
+    font-size: 20px;
+    color: white;
+    width: 80%;
+  }
+  .city {
+    font-size: 1.2rem;
+    margin-top: 0.8rem;
+  }
+  .description {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+  .temperature {
+    font-size: calc(80px / 2);
+    font-weight: 600;
+
+    font-family: "Inter", sans-serif;
+    display: flex;
+    flex-direction: row;
+  }
+  .style {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .wind-speed {
+    background-color: rgba(153, 211, 229, 0.459);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+    height: 140px;
+    width: 180px;
+    border-radius: 20px;
+  }
+
+  .humidity {
+    background-color: rgba(153, 211, 229, 0.459);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+    height: 140px;
+    width: 180px;
+    border-radius: 20px;
+  }
+
+  .icon {
+    height: 100px;
+    width: 100px;
+    margin-bottom: 1rem;
+  }
+  .information.loading {
+    display: none;
+  }
 }

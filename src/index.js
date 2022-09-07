@@ -45,11 +45,12 @@ async function displayWeather(data) {
     weather,
     main: { humidity, temp },
     wind: { speed },
+    sys: { country },
   } = data
   const celcius = Math.round(temp - KELVIN_TO_CELSIUS_CONSTANT)
   const { icon, description } = weather[0]
 
-  document.querySelector(".city").innerText = `Weather in ${name}`
+  document.querySelector(".city").innerText = `Weather in ${name}, ${country}`
   document.querySelector(
     ".icon"
   ).src = `http://openweathermap.org/img/wn/${icon}@2x.png`
@@ -58,7 +59,7 @@ async function displayWeather(data) {
   windSpeed.innerText = `${speed}km/h`
   humid.innerText = `${humidity}%`
   document.querySelector(".information").classList.remove("loading")
-  document.body.style.background = `linear-gradient(
+  document.body.style.backgroundImage = `linear-gradient(
     180deg,
     rgba(95, 182, 209, 0.8) 0%,
     rgba(66, 173, 207, 0.6) 58.85%,
@@ -88,13 +89,6 @@ async function fetchCity(city) {
   } catch (e) {
     console.log(e)
   }
-}
-
-function createWeatherImage(iconCode) {
-  const img = document.createElement("img")
-  img.src = `http://openweathermap.org/img/wn/${iconCode}@2x.png`
-
-  return img
 }
 
 const saveToStorage = (city) => localStorage.setItem(storageKey, city)
